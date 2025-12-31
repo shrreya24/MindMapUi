@@ -1,0 +1,24 @@
+{
+  "id": "1",
+  "title": "AI Visualization",
+  "summary": "Root node",
+  "children": [
+    {
+      "id": "2",
+      "title": "Frontend",
+      "summary": "React UI",
+      "children": [
+        {
+          "id": "3",
+          "title": "React Flow",
+          "summary": "Graph rendering"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Backend",
+      "summary": "API layer"
+    }
+  ]
+}
