@@ -1,24 +1,29 @@
 {
   "id": "1",
   "title": "AI Visualization",
-  "summary": "Root node",
+  "summary": "This node represents the core concept of AI-driven visualization systems. It focuses on transforming complex machine learning outputs and analytical data into clear, interactive, and human-readable visual representations. The goal is to enable users to explore insights, understand patterns, and make informed decisions through intuitive graphical interfaces.",
   "children": [
     {
       "id": "2",
       "title": "Frontend",
-      "summary": "React UI",
+      "summary": "The frontend layer is responsible for rendering interactive user interfaces that allow users to explore AI-generated insights. It emphasizes performance, responsiveness, and usability, using modern frameworks to manage state, handle interactions, and display dynamic visual components efficiently.",
       "children": [
         {
           "id": "3",
           "title": "React Flow",
-          "summary": "Graph rendering"
+          "summary": "React Flow is used to render and manage graph-based visualizations such as mindmaps and workflows. It provides features like node positioning, edge connections, zooming, and panning, enabling the creation of highly interactive and customizable data-driven visual interfaces."
         }
       ]
     },
     {
       "id": "4",
       "title": "Backend",
-      "summary": "API layer"
+      "summary": "The backend layer handles data processing, business logic, and API communication. It is responsible for preparing structured data, integrating AI or machine learning models, and exposing RESTful endpoints that the frontend can consume to display real-time or processed insights."
+    },
+     {
+      "id": "5",
+      "title": "App Development",
+      "summary": "The backend layer handles data processing, business logic, and API communication. It is responsible for preparing structured data, integrating AI or machine learning models, and exposing RESTful endpoints that the frontend can consume to display real-time or processed insights."
     }
   ]
 }

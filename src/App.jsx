@@ -4,31 +4,41 @@ import "reactflow/dist/style.css";
 
 import mindmapData from "./data/mindmap.json";
 import { parseMindmap } from "./utils/parseMindmap";
+import MindmapNode from "./components/MindmapNode";
 
 export default function App() {
   const [rfInstance, setRfInstance] = useState(null);
   const [collapsed, setCollapsed] = useState({});
   const [selectedNode, setSelectedNode] = useState(null);
+  const [nodeText, setNodeText] = useState({});
 
-  // Parse JSON → nodes & edges
   const { nodes, edges } = useMemo(
     () => parseMindmap(mindmapData),
     []
   );
 
-  // Handle collapse + hover summary
-  const processedNodes = nodes.map((node) => ({
-    ...node,
-    hidden: collapsed[node.id] && node.data.raw.children,
-    data: {
-      ...node.data,
-      label: (
-        <div title={node.data.summary}>
-          <strong>{node.data.label}</strong>
-        </div>
-      )
-    }
-  }));
+  const nodeTypes = {
+    mindmap: MindmapNode
+  };
+
+const processedNodes = nodes.map((node) => ({
+  ...node,
+  type: "mindmap",
+  hidden: collapsed[node.id] && node.data.raw.children,
+data: {
+  labelText: nodeText[node.id] || node.data.label,
+  summary: node.data.summary,
+  raw: node.data.raw,
+  onChange: (val) =>
+    setNodeText((prev) => ({ ...prev, [node.id]: val })),
+  onToggle: () =>
+    setCollapsed((prev) => ({
+      ...prev,
+      [node.id]: !prev[node.id]
+    })),
+  onSelect: () => setSelectedNode(node)
+}
+}));
 
   const processedEdges = edges.map((edge) => ({
     ...edge,
@@ -36,22 +46,23 @@ export default function App() {
   }));
 
   const handleNodeClick = (_, node) => {
-    setSelectedNode(node);
-    setCollapsed((prev) => ({
-      ...prev,
-      [node.id]: !prev[node.id]
-    }));
-  };
+  setSelectedNode(node);
+
+  // Toggle only if NOT editing
+  setCollapsed((prev) => ({
+    ...prev,
+    [node.id]: !prev[node.id]
+  }));
+};
+
 
   const handleResetView = () => {
-    if (rfInstance) {
-      rfInstance.fitView({ padding: 0.2 });
-    }
+    if (rfInstance) rfInstance.fitView({ padding: 0.2 });
   };
 
   return (
     <div style={{ display: "flex", height: "100vh" }}>
-      {/* Mindmap Area */}
+      {/* Mindmap */}
       <div
         style={{
           flex: 3,
@@ -79,15 +90,12 @@ export default function App() {
         <ReactFlow
           nodes={processedNodes}
           edges={processedEdges}
+          nodeTypes={nodeTypes}
           onInit={setRfInstance}
           onNodeClick={handleNodeClick}
           fitView
         >
-          <Background
-            gap={24}
-            size={1}
-            color="#7a7d86ff"
-          />
+          <Background gap={24} size={1} color="#e5e7eb" />
         </ReactFlow>
       </div>
 
@@ -97,15 +105,19 @@ export default function App() {
           flex: 1,
           padding: "16px",
           borderLeft: "1px solid #ddd",
-          background: "#d0def1ff"
+          background: "#ffffff"
         }}
       >
         {selectedNode ? (
           <>
-            <h3>{selectedNode.data.raw.title}</h3>
-            <p>{selectedNode.data.raw.summary}</p>
+             <h3>
+  {nodeText[selectedNode.id] || selectedNode.data.label}
+</h3>
+<p>{selectedNode.data.summary}</p>
+
+    
             <p>
-              <b>Child Nodes:</b>{" "}
+              <b>Children:</b>{" "}
               {selectedNode.data.raw.children
                 ? selectedNode.data.raw.children.length
                 : 0}
