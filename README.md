@@ -22,16 +22,8 @@ An interactive, data-driven mindmap UI built as part of the Frontend Development
 - Editing uses local state and commits changes cleanly
 - Side panel derives data from the same source of truth
 
-## How to Run
-```bash
-npm install
-npm run dev
 
-
----
-
-## 4️⃣ Repo Structure (IDEAL)
-
+## Repo Structure 
 mindmap-ui/
 ├── src/
 │ ├── components/
@@ -46,7 +38,9 @@ mindmap-ui/
 ├── README.md
 └── package.json
 
-## 5️⃣ Submission Message (USE THIS)
+
+---
+
 
 **Subject:**
 > Frontend Internship Assignment Submission – Interactive Mindmap UI
@@ -58,7 +52,7 @@ mindmap-ui/
 >  
 > The solution demonstrates a data-driven architecture, interactive node behavior, clean UI design, and scalable React code structure.  
 >  
-> GitHub Repo: <link>  
+> GitHub Repo: https://github.com/shrreya24/MindMapUi/
 > Demo Video: <link>  
 >  
 > Looking forward to your feedback.  
@@ -67,3 +61,9 @@ mindmap-ui/
 > Shreya
 
 ---
+
+
+## How to Run
+```bash
+npm install
+npm run dev
