@@ -25,18 +25,21 @@ An interactive, data-driven mindmap UI built as part of the Frontend Development
 
 ## Repo Structure 
 mindmap-ui/
+├── public/                     # Static assets like favicon, index.html
 ├── src/
-│ ├── components/
-│ │ └── MindmapNode.jsx
-│ ├── utils/
-│ │ └── parseMindmap.js
-│ ├── data/
-│ │ └── mindmap.json
-│ ├── App.jsx
-│ └── main.jsx
-├── screenshots/
+│   ├── assets/                 # Images, icons, fonts, etc.
+│   │   └── screenshots/        # Move screenshots here
+│   ├── components/             # All React components
+│   │   └── MindmapNode.jsx
+│   ├── data/                   # JSON or other static data
+│   │   └── mindmap.json
+│   ├── utils/                  # Utility JS functions
+│   │   └── parseMindmap.js
+│   ├── App.jsx                 # Root component
+│   └── main.jsx                # Entry point
 ├── README.md
-└── package.json
+├── package.json
+└── package-lock.json
 
 
 ---
