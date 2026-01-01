@@ -1,16 +1,69 @@
-# React + Vite
+# Interactive Mindmap UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+An interactive, data-driven mindmap UI built as part of the Frontend Development Internship assignment.
 
-Currently, two official plugins are available:
+## Features
+- JSON-driven mindmap rendering
+- Expand / collapse nodes
+- Inline node editing
+- Side panel with node details
+- Responsive and clean UI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React
+- ReactFlow
+- JavaScript
+- HTML, CSS
 
-## React Compiler
+## Architecture
+- Mindmap data is stored in a structured JSON file
+- UI dynamically renders based on data
+- Editing uses local state and commits changes cleanly
+- Side panel derives data from the same source of truth
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How to Run
+```bash
+npm install
+npm run dev
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 4️⃣ Repo Structure (IDEAL)
+
+mindmap-ui/
+├── src/
+│ ├── components/
+│ │ └── MindmapNode.jsx
+│ ├── utils/
+│ │ └── parseMindmap.js
+│ ├── data/
+│ │ └── mindmap.json
+│ ├── App.jsx
+│ └── main.jsx
+├── screenshots/
+├── README.md
+└── package.json
+
+## 5️⃣ Submission Message (USE THIS)
+
+**Subject:**
+> Frontend Internship Assignment Submission – Interactive Mindmap UI
+
+**Body:**
+> Hi Team,  
+>  
+> I’ve completed the Frontend Development assignment for the Interactive Mindmap UI.  
+>  
+> The solution demonstrates a data-driven architecture, interactive node behavior, clean UI design, and scalable React code structure.  
+>  
+> GitHub Repo: <link>  
+> Demo Video: <link>  
+>  
+> Looking forward to your feedback.  
+>  
+> Best regards,  
+> Shreya
+
+---
